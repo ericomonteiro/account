@@ -1,6 +1,7 @@
 package ericomonteiro.com.github.account.cache
 
 import ericomonteiro.com.github.account.dto.CustomerDto
+import ericomonteiro.com.github.account.extension.jsonToObject
 import ericomonteiro.com.github.account.extension.toJson
 import io.lettuce.core.api.StatefulRedisConnection
 import jakarta.inject.Singleton
@@ -13,7 +14,14 @@ class CustomerCache(
 
 
     fun setCustomerData(customer: CustomerDto) {
-        redis.async().set(buildKey(KEY_GET_CUSTOMER_TEMPLATE, customer.id), customer.toJson())
+        val key = buildKey(KEY_GET_CUSTOMER_TEMPLATE, customer.id)
+        redis.async().set(key, customer.toJson())
+    }
+
+    fun getCustomer(id: Long): CustomerDto? {
+        val key = buildKey(KEY_GET_CUSTOMER_TEMPLATE, id)
+        val json = redis.sync().get(key)
+        return json?.jsonToObject(CustomerDto::class.java)
     }
 
     private fun buildKey(template: String, id:Long) =
