@@ -9,9 +9,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @Controller("/home", produces = [MediaType.APPLICATION_JSON])
-class HomeController(
-    private val customerRepository: CustomerRepository
-) {
+class HomeController {
 
     private val logger: Logger = LoggerFactory.getLogger(HomeController::class.java)
 
@@ -20,8 +18,5 @@ class HomeController(
         logger.info("passed here")
         return mapOf(Pair("service", "up"))
     }
-
-    @Get("/customer")
-    fun listCustomers(): Iterable<CustomerEntity> = customerRepository.findAll()
 
 }

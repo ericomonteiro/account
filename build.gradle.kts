@@ -25,6 +25,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 
+    //Kafka
+    implementation("io.micronaut.kafka:micronaut-kafka")
+
     //Data
     implementation("io.micronaut.flyway:micronaut-flyway")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
