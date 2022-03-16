@@ -24,10 +24,12 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.micronaut.flyway:micronaut-flyway")
     implementation("io.micronaut:micronaut-validation")
-
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    testImplementation("org.testcontainers:postgresql")
 
 }
 
