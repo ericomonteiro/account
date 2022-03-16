@@ -41,6 +41,9 @@ dependencies {
     //Data Test
     testImplementation("org.testcontainers:postgresql")
 
+    //Util
+    implementation("com.google.code.gson:gson:2.9.0")
+
     implementation("io.micronaut:micronaut-validation")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
