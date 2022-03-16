@@ -10,7 +10,7 @@ plugins {
 version = "0.1"
 group = "ericomonteiro.com.github.account"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion= project.properties["kotlinVersion"]
 repositories {
     mavenCentral()
 }
@@ -34,6 +34,9 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-processor")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     runtimeOnly("org.postgresql:postgresql")
+
+    //Redis
+    implementation("io.micronaut.redis:micronaut-redis-lettuce")
 
     //Data Test
     testImplementation("org.testcontainers:postgresql")
